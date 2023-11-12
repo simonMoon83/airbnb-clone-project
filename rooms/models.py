@@ -1,10 +1,8 @@
-from audioop import avg
 from django.db import models
 from common.models import CommonModel
 
 
 class Room(CommonModel):
-
     """Room Model Definition"""
 
     class RoomKindChoices(models.TextChoices):
@@ -55,16 +53,16 @@ class Room(CommonModel):
         related_name="rooms",
     )
 
-    def __str__(self) -> str:
-        return self.name
+    def __str__(room) -> str:
+        return room.name
 
-    def total_amenities(self):
-        return self.amenities.count()
+    def total_amenities(room):
+        return room.amenities.count()
 
     def rating(room):
         count = room.reviews.count()
         if count == 0:
-            return "No Reviews"
+            return 0
         else:
             total_rating = 0
             for review in room.reviews.all().values("rating"):
@@ -73,7 +71,6 @@ class Room(CommonModel):
 
 
 class Amenity(CommonModel):
-
     """Amenity Definiton"""
 
     name = models.CharField(
