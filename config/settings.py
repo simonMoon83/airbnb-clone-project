@@ -154,7 +154,7 @@ MEDIA_ROOT = "uploads"
 
 MEDIA_URL = "user-uploads/"
 
-PAGE_SIZE = 3
+PAGE_SIZE = 4
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -165,4 +165,9 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
