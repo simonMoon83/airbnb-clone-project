@@ -142,3 +142,4 @@ class GithubLogIn(APIView):
             },
         )
         print(user_data.json())
+        return Response()
